@@ -1,0 +1,72 @@
+<h4 class="p-2  alert-info text-center">Tab Component Using [ngSwitch]</h4>
+
+<div [ngSwitch]="nums">
+    <p class="alert alert-success" *ngSwitchCase="5">this value is 5</p>
+    <p class="alert alert-warning" *ngSwitchCase="10">this value is 10</p>
+    <p class="alert alert-danger" *ngSwitchCase="15">this value is 15</p>
+    <p class="alert alert-info" *ngSwitchDefault>this value is anything apart from 5,10 and 15.</p>
+</div>
+
+<ul class="nav nav-pills mb-4">
+    <li class="nav-item" *ngFor="let skill of skillArr">
+        <a href="javascript:;" class="nav-link" [ngClass]="{
+            active:selectedFrameWork.toLowerCase().includes(skill.name.toLowerCase())
+        }" (click)="selectedFrameWork=skill.name.toLowerCase()">{{skill.name}}</a>
+    </li>
+</ul>
+
+
+<ng-container [ngSwitch]="selectedFrameWork">
+    <div class="card mb-4" *ngSwitchCase="'html'">
+        <div class="card-body">
+            <p class="mb-0" >
+                HTML (Hypertext Markup Language) is the standard language for creating web pages and applications. It
+                defines the structure and layout of content through elements and tags, facilitating the presentation of
+                text, images, links, and multimedia. HTML documents are interpreted by web browsers to display content on
+                the internet.
+            </p>
+        </div>
+    </div>
+    <div class="card mb-4" *ngSwitchCase="'angular'">
+        <div class="card-body">
+            <p class="mb-0" >
+                Angular is a popular open-source JavaScript framework maintained by Google. It simplifies web development by
+                providing tools for building dynamic single-page applications (SPAs). Angular uses a model-view-controller
+                (MVC) architecture and offers features like data binding, dependency injection, and modularization for
+                creating robust and scalable web applications.
+            </p>
+        </div>
+    </div>
+    <div class="card mb-4" *ngSwitchCase="'javascript'">
+        <div class="card-body">
+            <p class="mb-0" >
+                JavaScript (JS) is a versatile programming language primarily used for web development. It enables dynamic,
+                interactive elements on websites, enhancing user experience. JS runs on web browsers, enabling client-side
+                scripting, and on servers, via Node.js, for server-side scripting. It supports event handling, DOM
+                manipulation, and asynchronous programming, among other functionalities.
+            </p>
+        </div>
+    </div>
+    <div class="card mb-4" *ngSwitchCase="'typescript'">
+        <div class="card-body">
+            <p class="mb-0" >
+                TypeScript (TS) is a superset of JavaScript developed by Microsoft. It adds optional static typing and other
+                features to JavaScript, making it more robust and maintainable for large-scale applications. TypeScript
+                compiles to plain JavaScript, ensuring compatibility with existing web standards and allowing developers to
+                catch errors early in the development process.
+            </p>
+        </div>
+    </div>
+    <div class="card mb-4" *ngSwitchCase="'node.js'">
+        <div class="card-body">
+            <p class="mb-0" >
+                Node.js is a JavaScript runtime environment built on Chrome's V8 JavaScript engine. It allows developers to
+                run JavaScript code outside of a web browser, enabling server-side scripting for building scalable and
+                high-performance network applications. Node.js utilizes an event-driven, non-blocking I/O model, making it
+                efficient for handling concurrent operations.
+            </p>
+        </div>
+    </div>
+    
+</ng-container>
+
